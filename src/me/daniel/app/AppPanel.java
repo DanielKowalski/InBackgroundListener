@@ -6,6 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import me.daniel.button.AppButton;
+import me.daniel.button.ClickCallback;
+
 class AppPanel extends JPanel {
     private static final long serialVersionUID = 1L;
     private JTextField numberOfClicks, clicksPerMinute, pressedKeys;
@@ -16,9 +19,25 @@ class AppPanel extends JPanel {
         
         initLabels();
         initTextFields();
+        initButton();
         reset();
     }
     
+    private void initButton() {
+        AppButton button = new AppButton("RESET", new ClickCallback() {
+            
+            @Override
+            public void click() {
+                reset();
+            }
+        });
+        
+        button.setSize(AppFrame.WIDTH / 4, AppFrame.HEIGHT / 6);
+        button.setLocation((AppFrame.WIDTH - button.getWidth()) / 2, 2 * AppFrame.HEIGHT / 3);
+        
+        add(button);
+    }
+
     private void initTextFields() {
         numberOfClicks = new JTextField();
         clicksPerMinute = new JTextField();
@@ -38,10 +57,10 @@ class AppPanel extends JPanel {
     private void addTextField(JTextField textField, int order) {
         Color backgroundColor = Color.BLACK;
         Color textColor = Color.YELLOW;
-        int width = AppFrame.WIDTH - (int)(AppFrame.WIDTH / 50);
-        int height = (int)(AppFrame.HEIGHT / 10);
-        int x = (int)(AppFrame.WIDTH / 100);
-        int startY = (int)(AppFrame.HEIGHT / 100) + height;
+        int width = AppFrame.WIDTH - AppFrame.WIDTH / 50;
+        int height = AppFrame.HEIGHT / 10;
+        int x = AppFrame.WIDTH / 100;
+        int startY = AppFrame.HEIGHT / 100 + height;
         
         textField.setBounds(x, startY + height * 2 * order, width, height);
         textField.setBackground(backgroundColor);
@@ -52,10 +71,10 @@ class AppPanel extends JPanel {
     
     private void addLabel(String text, int order) {
         Color textColor = Color.YELLOW;
-        int x = (int)(AppFrame.WIDTH / 100);
-        int startY = (int)(AppFrame.HEIGHT / 100);
-        int width = (int)(AppFrame.WIDTH / 2);
-        int height = (int)(AppFrame.HEIGHT / 10);
+        int x = AppFrame.WIDTH / 100;
+        int startY = AppFrame.HEIGHT / 100;
+        int width = AppFrame.WIDTH / 2;
+        int height = AppFrame.HEIGHT / 10;
         
         JLabel label = new JLabel(text);
         
