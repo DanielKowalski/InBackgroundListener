@@ -14,6 +14,7 @@ public class AppFrame extends JFrame {
         setTitle(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        setResizable(false);
         
         add(new AppPanel());
     }
