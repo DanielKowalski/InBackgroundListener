@@ -40,6 +40,7 @@ class AppPanel extends JPanel {
     private void initTextArea(JTextArea textArea) {
         textArea.setBackground(Color.BLACK);
         textArea.setForeground(Color.YELLOW);
+        textArea.setEditable(false);
         
         JScrollPane scroll = new JScrollPane(textArea);
         scroll.setBorder(null);
@@ -56,12 +57,6 @@ class AppPanel extends JPanel {
         add(label);
     }
     
-    private void reset() {
-        numberOfClicks.setText("0");
-        clicksPerMinute.setText("0");
-        pressedKeys.setText("");
-    }
-    
     private void initButton() {
         AppButton button = new AppButton("RESET", new ClickCallback() {
             
@@ -72,5 +67,11 @@ class AppPanel extends JPanel {
         });
 
         add(button);
+    }
+    
+    private void reset() {
+        numberOfClicks.setText("0");
+        clicksPerMinute.setText("0");
+        pressedKeys.setText("");
     }
 }
