@@ -1,4 +1,4 @@
-package me.daniel.frame;
+package me.daniel.app;
 
 import java.awt.EventQueue;
 
