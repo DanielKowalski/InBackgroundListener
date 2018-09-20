@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 
 public class AppFrame extends JFrame {
     private static final long serialVersionUID = 1L;
-    private static final int WIDTH = 300, HEIGHT = 300;
-    private static final String TITLE = "In background listener";
+    static final int WIDTH = 300, HEIGHT = 300;
+    static final String TITLE = "In background listener";
     
     public AppFrame() {
         setSize(WIDTH, HEIGHT);
@@ -16,7 +16,7 @@ public class AppFrame extends JFrame {
         setVisible(true);
         setResizable(false);
         
-        add(new AppPanel());
+        setContentPane(new AppPanel());
     }
     
     public static void main(String[] args) {
