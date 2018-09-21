@@ -10,9 +10,10 @@ import org.jnativehook.NativeHookException;
 import me.daniel.inputListening.GlobalKeyListener;
 
 public class AppFrame extends JFrame {
-    private static final long serialVersionUID = 1L;
     static final int WIDTH = 300, HEIGHT = 300;
     static final String TITLE = "In background listener";
+    private static final long serialVersionUID = 1L;
+    private AppPanel panel;
     
     public AppFrame() {
         setSize(WIDTH, HEIGHT);
@@ -21,7 +22,8 @@ public class AppFrame extends JFrame {
         setVisible(true);
         setResizable(false);
         
-        setContentPane(new AppPanel());
+        panel = new AppPanel();
+        setContentPane(panel);
     }
     
     public static void main(String[] args) {
@@ -39,6 +41,6 @@ public class AppFrame extends JFrame {
             e.printStackTrace();
         }
         
-        GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
+        GlobalScreen.addNativeKeyListener(new GlobalKeyListener(panel));
     }
 }
