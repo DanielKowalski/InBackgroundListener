@@ -17,5 +17,4 @@ public class InputHandler {
         panel.increaseNumbersOfClicks();
         panel.increaseClicksPerMinute();
     }
-    
 }

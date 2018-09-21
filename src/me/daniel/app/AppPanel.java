@@ -22,6 +22,7 @@ public class AppPanel extends JPanel {
         initGuiElements();
         initButton();
         reset();
+        // TODO Add reseting clicks per minute
     }
     
     public void putKeyTextInTextArea(String keyText) {
