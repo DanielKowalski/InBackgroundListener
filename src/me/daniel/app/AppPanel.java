@@ -29,6 +29,18 @@ public class AppPanel extends JPanel {
         repaint();
     }
     
+    public void increaseNumbersOfClicks() {
+        int numbersOfClicks = Integer.parseInt(this.numberOfClicks.getText());
+        numbersOfClicks++;
+        this.numberOfClicks.setText("" + numbersOfClicks);
+    }
+    
+    public void increaseClicksPerMinute() {
+        int clicksPerMinute = Integer.parseInt(this.clicksPerMinute.getText());
+        clicksPerMinute++;
+        this.clicksPerMinute.setText("" + clicksPerMinute);
+    }
+    
     private void initGuiElements() {
         numberOfClicks = new JTextArea();
         clicksPerMinute = new JTextArea();

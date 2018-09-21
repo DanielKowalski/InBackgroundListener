@@ -3,7 +3,6 @@ package me.daniel.inputListening;
 import me.daniel.app.AppPanel;
 
 public class InputHandler {
-
     private AppPanel panel;
     
     public InputHandler(AppPanel panel) {
@@ -12,6 +11,11 @@ public class InputHandler {
     
     void putKeyText(String keyText) {
         panel.putKeyTextInTextArea(keyText);
+    }
+    
+    void countMouseClick() {
+        panel.increaseNumbersOfClicks();
+        panel.increaseClicksPerMinute();
     }
     
 }

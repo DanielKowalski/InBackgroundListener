@@ -4,7 +4,6 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
 public class GlobalKeyListener implements NativeKeyListener {
-
     private InputHandler handler;
     
     public GlobalKeyListener(InputHandler handler) {
@@ -21,5 +20,4 @@ public class GlobalKeyListener implements NativeKeyListener {
 
     @Override
     public void nativeKeyTyped(NativeKeyEvent evt) {/* Unimplemented */}
-
 }
