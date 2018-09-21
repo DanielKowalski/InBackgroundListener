@@ -14,5 +14,4 @@ class ButtonClickListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         click.click();
     }
-
 }

@@ -11,17 +11,22 @@ import javax.swing.JTextArea;
 import me.daniel.button.AppButton;
 import me.daniel.button.ClickCallback;
 
-class AppPanel extends JPanel {
+public class AppPanel extends JPanel {
     private static final long serialVersionUID = 1L;
     private JTextArea numberOfClicks, clicksPerMinute, pressedKeys;
     
-    AppPanel() {
+    public AppPanel() {
         setLayout(new GridLayout(7, 1));
         setBackground(Color.BLACK);
         
         initGuiElements();
         initButton();
         reset();
+    }
+    
+    public void putKeyTextInTextArea(String keyText) {
+        pressedKeys.append(keyText + ", ");
+        repaint();
     }
     
     private void initGuiElements() {

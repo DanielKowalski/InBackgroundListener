@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
+
+import me.daniel.inputListening.GlobalKeyListener;
+
 public class AppFrame extends JFrame {
     private static final long serialVersionUID = 1L;
     static final int WIDTH = 300, HEIGHT = 300;
@@ -27,5 +32,13 @@ public class AppFrame extends JFrame {
                 new AppFrame();
             }
         });
+        
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException e) {
+            e.printStackTrace();
+        }
+        
+        GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
     }
 }
