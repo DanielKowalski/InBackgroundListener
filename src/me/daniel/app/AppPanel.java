@@ -18,11 +18,10 @@ public class AppPanel extends JPanel {
     private JTextArea numberOfClicks, clicksPerSecond, pressedKeys;
     
     public AppPanel() {
-        setLayout(new GridLayout(7, 1));
+        setLayout(new GridLayout(8, 1));
         setBackground(Color.BLACK);
         
         initGuiElements();
-        initButton();
         reset();
         
         new Timer().schedule(new TimerTask() {
@@ -31,12 +30,11 @@ public class AppPanel extends JPanel {
             public void run() {
                 clicksPerSecond.setText("0");
             }
-        }, 0, 1000);
+        }, 1000);
     }
     
     public void putKeyTextInTextArea(String keyText) {
         pressedKeys.append(keyText + ", ");
-        repaint();
     }
     
     public void increaseNumbersOfClicks() {
@@ -62,6 +60,8 @@ public class AppPanel extends JPanel {
         initTextArea(clicksPerSecond);
         addLabel("Przyciśnięte klawisze: ");
         initTextArea(pressedKeys);
+        initButton();
+        addLabel("Author: Daniel \'Andrzej\' Kowalski ver. 1.0");
     }
 
     private void initTextArea(JTextArea textArea) {
