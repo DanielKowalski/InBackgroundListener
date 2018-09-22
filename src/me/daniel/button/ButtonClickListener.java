@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 class ButtonClickListener implements ActionListener {
     private ClickCallback click;
     
-    public ButtonClickListener(ClickCallback click) {
+    ButtonClickListener(ClickCallback click) {
         this.click = click;
     }
     
