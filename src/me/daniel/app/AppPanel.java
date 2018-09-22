@@ -2,6 +2,8 @@ package me.daniel.app;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,7 +15,7 @@ import me.daniel.button.ClickCallback;
 
 public class AppPanel extends JPanel {
     private static final long serialVersionUID = 1L;
-    private JTextArea numberOfClicks, clicksPerMinute, pressedKeys;
+    private JTextArea numberOfClicks, clicksPerSecond, pressedKeys;
     
     public AppPanel() {
         setLayout(new GridLayout(7, 1));
@@ -22,7 +24,14 @@ public class AppPanel extends JPanel {
         initGuiElements();
         initButton();
         reset();
-        // TODO Add reseting clicks per minute
+        
+        new Timer().schedule(new TimerTask() {
+            
+            @Override
+            public void run() {
+                clicksPerSecond.setText("0");
+            }
+        }, 0, 1000);
     }
     
     public void putKeyTextInTextArea(String keyText) {
@@ -36,21 +45,21 @@ public class AppPanel extends JPanel {
         this.numberOfClicks.setText("" + numbersOfClicks);
     }
     
-    public void increaseClicksPerMinute() {
-        int clicksPerMinute = Integer.parseInt(this.clicksPerMinute.getText());
+    public void increaseClicksPerSecond() {
+        int clicksPerMinute = Integer.parseInt(this.clicksPerSecond.getText());
         clicksPerMinute++;
-        this.clicksPerMinute.setText("" + clicksPerMinute);
+        this.clicksPerSecond.setText("" + clicksPerMinute);
     }
     
     private void initGuiElements() {
         numberOfClicks = new JTextArea();
-        clicksPerMinute = new JTextArea();
+        clicksPerSecond = new JTextArea();
         pressedKeys = new JTextArea();
         
         addLabel("Kliknięcia myszką: ");
         initTextArea(numberOfClicks);
-        addLabel("Kliknięcia na minutę: ");
-        initTextArea(clicksPerMinute);
+        addLabel("Kliknięcia na sekundę: ");
+        initTextArea(clicksPerSecond);
         addLabel("Przyciśnięte klawisze: ");
         initTextArea(pressedKeys);
     }
@@ -89,7 +98,7 @@ public class AppPanel extends JPanel {
     
     private void reset() {
         numberOfClicks.setText("0");
-        clicksPerMinute.setText("0");
+        clicksPerSecond.setText("0");
         pressedKeys.setText("");
     }
 }

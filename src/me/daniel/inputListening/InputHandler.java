@@ -15,6 +15,6 @@ public class InputHandler {
     
     void countMouseClick() {
         panel.increaseNumbersOfClicks();
-        panel.increaseClicksPerMinute();
+        panel.increaseClicksPerSecond();
     }
 }
